@@ -1,6 +1,6 @@
 const mongoose=require("mongoose");
 const FeedbackSchema=new mongoose.Schema({
-    StudentName:{
+    studentName:{
         type:String,
         required:true
     },
@@ -14,7 +14,14 @@ const FeedbackSchema=new mongoose.Schema({
     },
     rating:{
         type:Number,
-        required:true
+        required:true,
+        min:1,
+        max:5
+    },
+    status:{
+        type:"string",
+        enum:["Pending","Reviewed"],
+        default:"Pending"
     }
 })
 const Feedback=mongoose.model("Feedback",FeedbackSchema)

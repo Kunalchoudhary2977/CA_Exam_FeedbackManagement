@@ -1,9 +1,10 @@
 const express=require("express")
 const router=express.Router()
 
-const {getFeedback,updateFeedback}=require("../controllers/feedbackController")
+const {submitFeedback,updateFeedback,getFeedback}=require("../controllers/feedbackController")
 
-router.post("/",getFeedback)
-router.put("/:id",updateFeedback)
+router.post("/",submitFeedback)
+router.patch("/:id",updateFeedback)
+router.get("/",getFeedback)
 
 module.exports=router;
